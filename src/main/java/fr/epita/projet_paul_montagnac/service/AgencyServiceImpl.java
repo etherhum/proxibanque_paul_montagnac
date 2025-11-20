@@ -1,6 +1,8 @@
 package fr.epita.projet_paul_montagnac.service;
 
 import fr.epita.projet_paul_montagnac.model.Agency;
+import fr.epita.projet_paul_montagnac.model.Client;
+import fr.epita.projet_paul_montagnac.model.Employee;
 import fr.epita.projet_paul_montagnac.repository.AgencyRepository;
 import java.util.List;
 import java.util.Optional;
@@ -10,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
+// TODO Convert Long ID to String ID (pas eu le temps)
 public class AgencyServiceImpl implements AgencyService {
   private final AgencyRepository repository;
 
@@ -19,18 +22,33 @@ public class AgencyServiceImpl implements AgencyService {
   }
 
   @Override
-  public Optional<Agency> getAgency(Long id) {
+  public Optional<Agency> getAgency(String id) {
     return repository.findById(id);
   }
 
   @Override
   public Agency createAgency(Agency agency) {
-    return null; // TODO finir
+    // TODO
+  }
+
+  @Override
+  public Agency createAgency() {
+    // TODO
   }
 
   @Override
   public void deleteAgency(Long id) {
     repository.deleteById(id);
+  }
+
+  @Override
+  public Employee addAdvisor(String agencyId, Employee advisor) {
+    // TODO
+  }
+
+  @Override
+  public void assignClientToAdvisor(Long advisorId, Client client) {
+    // TODO
   }
 
   private String generateAgencyId() {

@@ -4,6 +4,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import java.util.ArrayList;
 import java.util.List;
@@ -30,4 +31,7 @@ public class Client {
 
   @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
   private List<BankCard> cards = new ArrayList<>();
+
+  @ManyToOne
+  private Employee advisor;
 }
